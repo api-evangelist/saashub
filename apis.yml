@@ -1,15 +1,13 @@
 aid: saashub
-url: 
-  https://raw.githubusercontent.com/api-evangelist/saashub/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/saashub/refs/heads/main/apis.yml
 apis:
   - aid: saashub:saashub-api
     name: SaaSHub API
     tags:
+      - Alternatives
       - SaaS
       - Software Discovery
-      - Alternatives
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://www.saashub.com/api
     humanURL: https://www.saashub.com/site/api
     properties:
@@ -26,12 +24,11 @@ apis:
       Authentication is performed via an API key available in user profiles.
 name: SaaSHub
 tags:
+  - Alternatives
   - SaaS
   - Software Discovery
-  - Alternatives
 type: Index
-image: 
-  https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
   - url: https://www.saashub.com/
