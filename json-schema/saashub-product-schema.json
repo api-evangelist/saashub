@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/saashub/refs/heads/main/json-schema/saashub-product-schema.json",
+  "title": "SaaSHub Product",
+  "description": "Schema for a software product listing on the SaaSHub discovery platform",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique product identifier (slug) on SaaSHub",
+      "example": "basecamp"
+    },
+    "type": {
+      "type": "string",
+      "const": "products",
+      "description": "JSON:API resource type"
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Official product name",
+          "example": "Basecamp"
+        },
+        "saashubUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical SaaSHub listing URL",
+          "example": "https://www.saashub.com/basecamp"
+        },
+        "tagline": {
+          "type": "string",
+          "description": "Short product tagline or description",
+          "example": "The all-in-one toolkit for working remotely"
+        },
+        "status": {
+          "type": "string",
+          "description": "Product lifecycle status",
+          "enum": ["active", "discontinued"],
+          "example": "active"
+        },
+        "websiteUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Official product website URL",
+          "example": "https://basecamp.com"
+        },
+        "category": {
+          "type": "string",
+          "description": "Primary software category",
+          "example": "Project Management"
+        },
+        "categories": {
+          "type": "array",
+          "description": "All categories the product belongs to",
+          "items": {
+            "type": "string"
+          },
+          "example": ["Project Management", "Team Collaboration"]
+        },
+        "pricing": {
+          "type": "string",
+          "description": "Pricing model description",
+          "example": "Paid with free trial"
+        },
+        "license": {
+          "type": "string",
+          "description": "Software license type",
+          "example": "Proprietary"
+        },
+        "openSource": {
+          "type": "boolean",
+          "description": "Whether the software is open source"
+        },
+        "upvoteCount": {
+          "type": "integer",
+          "description": "Number of upvotes on SaaSHub",
+          "minimum": 0
+        },
+        "alternativeCount": {
+          "type": "integer",
+          "description": "Number of alternatives listed on SaaSHub",
+          "minimum": 0
+        }
+      },
+      "required": ["name", "saashubUrl", "tagline"]
+    }
+  },
+  "required": ["id", "type", "attributes"]
+}

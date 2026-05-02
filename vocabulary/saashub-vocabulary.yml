@@ -1,0 +1,51 @@
+aid: saashub
+name: SaaSHub Vocabulary
+description: >-
+  Vocabulary and terminology for the SaaSHub software discovery platform
+  covering product listings, alternatives, categories, and platform concepts.
+terms:
+  - term: Product
+    definition: >-
+      A software application listed on SaaSHub with metadata including
+      name, tagline, category, pricing, website, and alternatives.
+  - term: Alternative
+    definition: >-
+      A software product that serves as a substitute or competitor to
+      another product; SaaSHub returns up to 10 top alternatives per query.
+  - term: JSON:API
+    definition: >-
+      A specification (jsonapi.org) for building APIs using JSON that
+      SaaSHub's API follows, returning responses with data and included
+      sections following standardized resource object structure.
+  - term: Tagline
+    definition: >-
+      A short description or marketing slogan for a software product as
+      displayed on its SaaSHub listing page.
+  - term: Category
+    definition: >-
+      A software classification label used to group similar products on
+      SaaSHub (e.g., Project Management, CRM, Analytics, DevOps).
+  - term: Upvote
+    definition: >-
+      A positive endorsement of a product by the SaaSHub community;
+      upvote count reflects community popularity of a listing.
+  - term: Status
+    definition: >-
+      The lifecycle state of a product on SaaSHub: active (currently
+      available) or discontinued (no longer maintained or sold).
+  - term: API Key
+    definition: >-
+      Authentication credential for the SaaSHub API obtained from the
+      user profile page; passed as the api_key query parameter.
+  - term: Product Slug
+    definition: >-
+      The URL-friendly lowercase identifier for a product on SaaSHub
+      (e.g., "basecamp", "microsoft-teams") used as the API query parameter.
+  - term: Software Directory
+    definition: >-
+      A permanent catalog of software products where vendors can list
+      their applications for ongoing discovery and comparison by users.
+  - term: Pricing Model
+    definition: >-
+      How a software product is sold: Free, Freemium, Paid, Paid with
+      free trial, Open Source, or other commercial models.

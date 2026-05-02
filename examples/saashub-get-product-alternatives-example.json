@@ -1,0 +1,79 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://www.saashub.com/api/alternatives/basecamp?api_key=your_api_key_here",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": {
+        "id": "basecamp",
+        "type": "products",
+        "attributes": {
+          "name": "Basecamp",
+          "saashubUrl": "https://www.saashub.com/basecamp",
+          "tagline": "The all-in-one toolkit for working remotely",
+          "status": "active",
+          "websiteUrl": "https://basecamp.com",
+          "category": "Project Management",
+          "categories": ["Project Management", "Team Collaboration", "Remote Work"],
+          "pricing": "Paid",
+          "license": "Proprietary",
+          "openSource": false,
+          "upvoteCount": 1247,
+          "alternativeCount": 89
+        }
+      },
+      "included": [
+        {
+          "id": "asana",
+          "type": "products",
+          "attributes": {
+            "name": "Asana",
+            "saashubUrl": "https://www.saashub.com/asana",
+            "tagline": "Work on big ideas, without the busywork",
+            "status": "active",
+            "category": "Project Management",
+            "pricing": "Freemium",
+            "openSource": false,
+            "upvoteCount": 2341
+          }
+        },
+        {
+          "id": "trello",
+          "type": "products",
+          "attributes": {
+            "name": "Trello",
+            "saashubUrl": "https://www.saashub.com/trello",
+            "tagline": "Trello helps teams move work forward",
+            "status": "active",
+            "category": "Project Management",
+            "pricing": "Freemium",
+            "openSource": false,
+            "upvoteCount": 3102
+          }
+        },
+        {
+          "id": "monday",
+          "type": "products",
+          "attributes": {
+            "name": "Monday.com",
+            "saashubUrl": "https://www.saashub.com/monday",
+            "tagline": "A Work OS that powers teams to run processes",
+            "status": "active",
+            "category": "Project Management",
+            "pricing": "Paid",
+            "openSource": false,
+            "upvoteCount": 1876
+          }
+        }
+      ]
+    }
+  }
+}

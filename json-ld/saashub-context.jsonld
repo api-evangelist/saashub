@@ -1,0 +1,45 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "saashub": "https://www.saashub.com/terms/",
+
+    "Product": {
+      "@id": "schema:SoftwareApplication",
+      "@type": "@id"
+    },
+    "id": "dcterms:identifier",
+    "name": "schema:name",
+    "tagline": "schema:description",
+    "saashubUrl": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "websiteUrl": {
+      "@id": "schema:sameAs",
+      "@type": "@id"
+    },
+    "status": "schema:operatingSystem",
+    "category": "schema:applicationCategory",
+    "categories": "schema:applicationCategory",
+    "pricing": "schema:priceRange",
+    "license": {
+      "@id": "schema:license",
+      "@type": "@id"
+    },
+    "openSource": {
+      "@id": "schema:isAccessibleForFree",
+      "@type": "xsd:boolean"
+    },
+    "upvoteCount": {
+      "@id": "schema:interactionCount",
+      "@type": "xsd:integer"
+    },
+    "alternativeCount": {
+      "@id": "saashub:alternativeCount",
+      "@type": "xsd:integer"
+    }
+  }
+}

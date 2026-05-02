@@ -1,0 +1,84 @@
+{
+  "name": "SaaSHub Product",
+  "description": "Structure of a software product listing on SaaSHub",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "required": true,
+      "description": "Unique product slug identifier"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "required": true,
+      "description": "JSON:API resource type (always 'products')"
+    },
+    {
+      "name": "attributes.name",
+      "type": "string",
+      "required": true,
+      "description": "Official product name"
+    },
+    {
+      "name": "attributes.saashubUrl",
+      "type": "uri",
+      "required": true,
+      "description": "Canonical SaaSHub listing URL"
+    },
+    {
+      "name": "attributes.tagline",
+      "type": "string",
+      "required": true,
+      "description": "Short product tagline"
+    },
+    {
+      "name": "attributes.status",
+      "type": "string",
+      "required": false,
+      "description": "Product lifecycle status (active or discontinued)"
+    },
+    {
+      "name": "attributes.websiteUrl",
+      "type": "uri",
+      "required": false,
+      "description": "Official product website"
+    },
+    {
+      "name": "attributes.category",
+      "type": "string",
+      "required": false,
+      "description": "Primary software category"
+    },
+    {
+      "name": "attributes.categories",
+      "type": "array",
+      "required": false,
+      "description": "All applicable software categories"
+    },
+    {
+      "name": "attributes.pricing",
+      "type": "string",
+      "required": false,
+      "description": "Pricing model description"
+    },
+    {
+      "name": "attributes.openSource",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the product is open source"
+    },
+    {
+      "name": "attributes.upvoteCount",
+      "type": "integer",
+      "required": false,
+      "description": "Community upvote count on SaaSHub"
+    },
+    {
+      "name": "attributes.alternativeCount",
+      "type": "integer",
+      "required": false,
+      "description": "Number of known alternatives"
+    }
+  ]
+}
