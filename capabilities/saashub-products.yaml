@@ -1,0 +1,84 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SaaSHub API — Products
+  description: 'SaaSHub API — Products. 1 operations. Lead operation: Get Product by Name. Self-contained Naftiko capability
+    covering one Saashub business surface.'
+  tags:
+  - Saashub
+  - Products
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SAASHUB_API_KEY: SAASHUB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: saashub-products
+    baseUri: https://www.saashub.com/api
+    description: SaaSHub API — Products business capability. Self-contained, no shared references.
+    resources:
+    - name: product-query
+      path: /product/{query}
+      operations:
+      - name: getproduct
+        method: GET
+        description: Get Product by Name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          description: Product name to search for (e.g., "basecamp", "slack", "notion"). URL-encode spaces and special characters.
+          required: true
+        - name: api_key
+          in: query
+          type: string
+          description: Your SaaSHub API key. Obtain from https://www.saashub.com/profile/api_key
+          required: true
+  exposes:
+  - type: rest
+    namespace: saashub-products-rest
+    port: 8080
+    description: REST adapter for SaaSHub API — Products. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/product/{query}
+      name: product-query
+      description: REST surface for product-query.
+      operations:
+      - method: GET
+        name: getproduct
+        description: Get Product by Name
+        call: saashub-products.getproduct
+        with:
+          query: rest.query
+          api_key: rest.api_key
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: saashub-products-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SaaSHub API — Products. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-product-name
+      description: Get Product by Name
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: saashub-products.getproduct
+      with:
+        query: tools.query
+        api_key: tools.api_key
+      outputParameters:
+      - type: object
+        mapping: $.

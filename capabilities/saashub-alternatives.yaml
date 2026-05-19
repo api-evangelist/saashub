@@ -1,0 +1,84 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SaaSHub API — Alternatives
+  description: 'SaaSHub API — Alternatives. 1 operations. Lead operation: Get Product Alternatives. Self-contained Naftiko
+    capability covering one Saashub business surface.'
+  tags:
+  - Saashub
+  - Alternatives
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SAASHUB_API_KEY: SAASHUB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: saashub-alternatives
+    baseUri: https://www.saashub.com/api
+    description: SaaSHub API — Alternatives business capability. Self-contained, no shared references.
+    resources:
+    - name: alternatives-query
+      path: /alternatives/{query}
+      operations:
+      - name: getproductalternatives
+        method: GET
+        description: Get Product Alternatives
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: path
+          type: string
+          description: Product name to search for and find alternatives to (e.g., "basecamp", "jira", "trello").
+          required: true
+        - name: api_key
+          in: query
+          type: string
+          description: Your SaaSHub API key
+          required: true
+  exposes:
+  - type: rest
+    namespace: saashub-alternatives-rest
+    port: 8080
+    description: REST adapter for SaaSHub API — Alternatives. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/alternatives/{query}
+      name: alternatives-query
+      description: REST surface for alternatives-query.
+      operations:
+      - method: GET
+        name: getproductalternatives
+        description: Get Product Alternatives
+        call: saashub-alternatives.getproductalternatives
+        with:
+          query: rest.query
+          api_key: rest.api_key
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: saashub-alternatives-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SaaSHub API — Alternatives. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-product-alternatives
+      description: Get Product Alternatives
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: saashub-alternatives.getproductalternatives
+      with:
+        query: tools.query
+        api_key: tools.api_key
+      outputParameters:
+      - type: object
+        mapping: $.
