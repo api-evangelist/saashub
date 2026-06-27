@@ -61,7 +61,7 @@ common:
     type: Newsletter
   - url: https://www.saashub.com/users/sign_up
     name: Sign Up
-    type: SignUp
+    type: Signup
   - url: https://www.saashub.com/users/sign_in
     name: Login
     type: Login
