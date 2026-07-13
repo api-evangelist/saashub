@@ -1,71 +1,118 @@
-extends: spectral:oas
+# saashub — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - servers-https-only: 100% of servers already https (error)
+#   - servers-expected-domain: 1/1 servers on saashub.com
+#   - schema-names-casing: pascal @ 100% (n=4)
+#   - schema-properties-casing: snake @ 72% (n=18)
+#   - merge: kept 7 existing, added 5 measured, upgraded 0
+#   - added: servers-https-only, servers-expected-domain, schema-names-casing, schema-properties-casing, no-empty-descriptions
+extends:
+  - spectral:oas
 rules:
   saashub-summary-title-case:
     description: All operation summaries must use Title Case
-    message: "Operation summary '{{value}}' must use Title Case"
+    message: Operation summary '{{value}}' must use Title Case
     severity: warn
-    given: "$.paths[*][*].summary"
+    given: $.paths[*][*].summary
     then:
       function: pattern
       functionOptions:
-        match: "^[A-Z][a-zA-Z0-9]*(\\s[A-Z][a-zA-Z0-9]*)*$"
-
+        match: ^[A-Z][a-zA-Z0-9]*(\s[A-Z][a-zA-Z0-9]*)*$
   saashub-tags-title-case:
     description: All tags must use Title Case
-    message: "Tag '{{value}}' must use Title Case"
+    message: Tag '{{value}}' must use Title Case
     severity: warn
-    given: "$.paths[*][*].tags[*]"
+    given: $.paths[*][*].tags[*]
     then:
       function: pattern
       functionOptions:
-        match: "^[A-Z][a-zA-Z0-9]*(\\s[A-Z][a-zA-Z0-9]*)*$"
-
+        match: ^[A-Z][a-zA-Z0-9]*(\s[A-Z][a-zA-Z0-9]*)*$
   saashub-api-key-required:
     description: API key query parameter must be present on all operations
-    message: "All SaaSHub API operations require an api_key query parameter"
+    message: All SaaSHub API operations require an api_key query parameter
     severity: error
-    given: "$.paths[*][get]"
+    given: $.paths[*][get]
     then:
       function: schema
       functionOptions:
         schema:
           type: object
-
   saashub-operation-ids-camel-case:
     description: Operation IDs must use camelCase
-    message: "Operation ID '{{value}}' must use camelCase"
+    message: Operation ID '{{value}}' must use camelCase
     severity: warn
-    given: "$.paths[*][*].operationId"
+    given: $.paths[*][*].operationId
     then:
       function: pattern
       functionOptions:
-        match: "^[a-z][a-zA-Z0-9]*$"
-
+        match: ^[a-z][a-zA-Z0-9]*$
   saashub-path-params-have-examples:
     description: Path parameters should include examples
-    message: "Path parameter should include an example value"
+    message: Path parameter should include an example value
     severity: warn
-    given: "$.paths[*][*].parameters[?(@.in == 'path')]"
+    given: $.paths[*][*].parameters[?(@.in == 'path')]
     then:
       field: schema.example
       function: truthy
-
   saashub-responses-include-json:
     description: Successful responses must return application/json
-    message: "2xx responses should include application/json content"
+    message: 2xx responses should include application/json content
     severity: warn
-    given: "$.paths[*][*].responses[?(@property.match(/^2/))]"
+    given: $.paths[*][*].responses[?(@property.match(/^2/))]
     then:
       field: content
       function: truthy
-
   saashub-jsonapi-response-structure:
     description: Responses should follow JSON:API structure with data field
-    message: "Response schema should include a 'data' property per JSON:API spec"
+    message: Response schema should include a 'data' property per JSON:API spec
     severity: warn
-    given: "$.components.schemas[*]"
+    given: $.components.schemas[*]
     then:
       function: schema
       functionOptions:
         schema:
           type: object
+  servers-https-only:
+    description: Server URLs must use HTTPS.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: ^https://
+  servers-expected-domain:
+    description: Server URLs should be on the saashub.com domain.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: saashub\.com
+  schema-names-casing:
+    description: Component schema names should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: pascal
+  schema-properties-casing:
+    description: Schema properties should be snake_case (the dominant convention in this API).
+    severity: info
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: snake
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
+      function: truthy
