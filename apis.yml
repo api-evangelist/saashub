@@ -39,6 +39,8 @@ apis:
       - type: Authentication
         url: https://www.saashub.com/profile/api_key
 common:
+  - type: AgenticAccess
+    url: agentic-access/saashub-agentic-access.yml
   - type: DomainSecurity
     url: security/saashub-domain-security.yml
   - type: GitHubOrganization
