@@ -7,7 +7,19 @@ description: >-
   SaaSHub serves as a permanent directory where software vendors can list their products and users can discover
   alternatives to tools they already use.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/saashub.png
 url: https://raw.githubusercontent.com/api-evangelist/saashub/refs/heads/main/apis.yml
 tags:
   - Alternatives
@@ -18,26 +30,34 @@ created: '2026-03-24'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: saashub:saashub-api
-    name: SaaSHub API
-    description: >-
-      The SaaSHub public API provides programmatic access to SaaSHub's software discovery platform. The API offers two
-      primary endpoints: a product endpoint that returns data for the first product matching a query, and an
-      alternatives endpoint that returns the matching product along with its top 10 relevant alternatives. Responses
-      follow the JSON:API specification. Authentication requires an API key obtained from the SaaSHub user profile.
-    humanURL: https://www.saashub.com/site/api
-    baseURL: https://www.saashub.com/api
-    tags:
-      - Software Discovery
-      - Alternatives
-      - SaaS
-    properties:
-      - type: Documentation
-        url: https://www.saashub.com/site/api
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/saashub/refs/heads/main/openapi/saashub-openapi.yml
-      - type: Authentication
-        url: https://www.saashub.com/profile/api_key
+- aid: saashub:saashub-alternatives-api
+  name: SaaSHub Alternatives API
+  description: Software alternatives discovery
+  humanURL: https://www.saashub.com/site/api
+  baseURL: https://www.saashub.com/api
+  tags:
+  - Alternatives
+  properties:
+  - type: OpenAPI
+    url: openapi/saashub-alternatives-api-openapi.yml
+  - type: Documentation
+    url: https://www.saashub.com/site/api
+  - type: Authentication
+    url: https://www.saashub.com/profile/api_key
+- aid: saashub:saashub-products-api
+  name: SaaSHub Products API
+  description: Software product lookup
+  humanURL: https://www.saashub.com/site/api
+  baseURL: https://www.saashub.com/api
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/saashub-products-api-openapi.yml
+  - type: Documentation
+    url: https://www.saashub.com/site/api
+  - type: Authentication
+    url: https://www.saashub.com/profile/api_key
 common:
   - type: AgenticAccess
     url: agentic-access/saashub-agentic-access.yml
