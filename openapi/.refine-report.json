@@ -1,0 +1,16 @@
+{
+  "provider": "saashub",
+  "sources": [
+    "saashub-alternatives-api-openapi.yml",
+    "saashub-products-api-openapi.yml"
+  ],
+  "outputs": [
+    "saashub-alternatives-api-openapi.yml",
+    "saashub-products-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
