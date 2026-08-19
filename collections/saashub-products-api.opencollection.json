@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SaaSHub Alternatives Products API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Product by Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.saashub.com/api/product/:query",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "path",
+                "description": "Product name to search for (e.g., \"basecamp\", \"slack\", \"notion\"). URL-encode spaces and special characters."
+              },
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "Your SaaSHub API key. Obtain from https://www.saashub.com/profile/api_key"
+              }
+            ]
+          },
+          "docs": "Returns data for the first software product matching the query string. Returns product details including name, tagline, SaaSHub URL, pricing, categories, and basic metadata."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

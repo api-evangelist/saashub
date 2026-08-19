@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SaaSHub Alternatives API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Alternatives",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Product Alternatives",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.saashub.com/api/alternatives/:query",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "path",
+                "description": "Product name to search for and find alternatives to (e.g., \"basecamp\", \"jira\", \"trello\")."
+              },
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "Your SaaSHub API key"
+              }
+            ]
+          },
+          "docs": "Returns the first matching product for the query along with its top 10 relevant software alternatives. Useful for competitive analysis and software discovery workflows."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

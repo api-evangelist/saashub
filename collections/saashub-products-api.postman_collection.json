@@ -1,0 +1,218 @@
+{
+  "item": [
+    {
+      "id": "a87bff08-cba3-44b9-9742-8a08ef4786e8",
+      "name": "Products",
+      "description": {
+        "content": "Software product lookup",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1efdd396-b027-4876-a1f0-5341b3e9e99b",
+          "name": "Get Product by Name",
+          "request": {
+            "name": "Get Product by Name",
+            "description": {
+              "content": "Returns data for the first software product matching the query string. Returns product details including name, tagline, SaaSHub URL, pricing, categories, and basic metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "product",
+                ":query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "(Required) Your SaaSHub API key. Obtain from https://www.saashub.com/profile/api_key"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "query",
+                  "description": "(Required) Product name to search for (e.g., \"basecamp\", \"slack\", \"notion\"). URL-encode spaces and special characters."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f0d04aeb-4d18-426b-9ed9-5e4759c6bf8c",
+              "name": "Product data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "your_api_key_here"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "query",
+                      "description": "(Required) Product name to search for (e.g., \"basecamp\", \"slack\", \"notion\"). URL-encode spaces and special characters."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"basecamp\",\n    \"type\": \"products\",\n    \"attributes\": {\n      \"name\": \"Basecamp\",\n      \"saashubUrl\": \"https://www.saashub.com/basecamp\",\n      \"tagline\": \"The all-in-one toolkit for working remotely\",\n      \"status\": \"active\",\n      \"websiteUrl\": \"https://basecamp.com\",\n      \"category\": \"Project Management\",\n      \"categories\": [\n        \"Project Management\",\n        \"Team Collaboration\",\n        \"Remote Work\"\n      ],\n      \"pricing\": \"Paid with free trial\",\n      \"license\": \"Proprietary\",\n      \"openSource\": false,\n      \"upvoteCount\": 1247,\n      \"alternativeCount\": 89\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2051d329-2451-4c29-bfb0-67e092581e4e",
+              "name": "Unauthorized - invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "your_api_key_here"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "query",
+                      "description": "(Required) Product name to search for (e.g., \"basecamp\", \"slack\", \"notion\"). URL-encode spaces and special characters."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "949a8f43-c9c7-4f77-bbf0-96ac99cc4b07",
+              "name": "No matching product found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "your_api_key_here"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "query",
+                      "description": "(Required) Product name to search for (e.g., \"basecamp\", \"slack\", \"notion\"). URL-encode spaces and special characters."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.saashub.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "351db60f-d3a5-4177-81f8-daaccc317293",
+    "name": "SaaSHub Alternatives Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SaaSHub public API provides programmatic access to SaaSHub's software discovery platform. The API offers two primary endpoints: a product endpoint that returns data for the first product matching a query, and an alternatives endpoint that returns the matching product along with its top 10 relevant alternatives. Responses follow the JSON:API specification. Authentication requires an API key obtained from the SaaSHub user profile.\n\nContact Support:\n Name: SaaSHub Support",
+      "type": "text/plain"
+    }
+  }
+}

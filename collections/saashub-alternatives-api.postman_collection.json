@@ -1,0 +1,218 @@
+{
+  "item": [
+    {
+      "id": "a6e62601-0ebb-4f93-8778-0beba1e63e47",
+      "name": "Alternatives",
+      "description": {
+        "content": "Software alternatives discovery",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "43ad68d3-7e41-4b74-b8f8-8994e03c7792",
+          "name": "Get Product Alternatives",
+          "request": {
+            "name": "Get Product Alternatives",
+            "description": {
+              "content": "Returns the first matching product for the query along with its top 10 relevant software alternatives. Useful for competitive analysis and software discovery workflows.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "alternatives",
+                ":query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "(Required) Your SaaSHub API key"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "query",
+                  "description": "(Required) Product name to search for and find alternatives to (e.g., \"basecamp\", \"jira\", \"trello\")."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7437c786-3b0b-4975-96c8-775b32e6135c",
+              "name": "Product data with alternatives",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alternatives",
+                    ":query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "your_api_key_here"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "query",
+                      "description": "(Required) Product name to search for and find alternatives to (e.g., \"basecamp\", \"jira\", \"trello\")."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"basecamp\",\n    \"type\": \"products\",\n    \"attributes\": {\n      \"name\": \"Basecamp\",\n      \"saashubUrl\": \"https://www.saashub.com/basecamp\",\n      \"tagline\": \"The all-in-one toolkit for working remotely\",\n      \"status\": \"active\",\n      \"websiteUrl\": \"https://basecamp.com\",\n      \"category\": \"Project Management\",\n      \"categories\": [\n        \"Project Management\",\n        \"Team Collaboration\",\n        \"Remote Work\"\n      ],\n      \"pricing\": \"Paid with free trial\",\n      \"license\": \"Proprietary\",\n      \"openSource\": false,\n      \"upvoteCount\": 1247,\n      \"alternativeCount\": 89\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"basecamp\",\n      \"type\": \"products\",\n      \"attributes\": {\n        \"name\": \"Basecamp\",\n        \"saashubUrl\": \"https://www.saashub.com/basecamp\",\n        \"tagline\": \"The all-in-one toolkit for working remotely\",\n        \"status\": \"active\",\n        \"websiteUrl\": \"https://basecamp.com\",\n        \"category\": \"Project Management\",\n        \"categories\": [\n          \"Project Management\",\n          \"Team Collaboration\",\n          \"Remote Work\"\n        ],\n        \"pricing\": \"Paid with free trial\",\n        \"license\": \"Proprietary\",\n        \"openSource\": false,\n        \"upvoteCount\": 1247,\n        \"alternativeCount\": 89\n      }\n    },\n    {\n      \"id\": \"basecamp\",\n      \"type\": \"products\",\n      \"attributes\": {\n        \"name\": \"Basecamp\",\n        \"saashubUrl\": \"https://www.saashub.com/basecamp\",\n        \"tagline\": \"The all-in-one toolkit for working remotely\",\n        \"status\": \"active\",\n        \"websiteUrl\": \"https://basecamp.com\",\n        \"category\": \"Project Management\",\n        \"categories\": [\n          \"Project Management\",\n          \"Team Collaboration\",\n          \"Remote Work\"\n        ],\n        \"pricing\": \"Paid with free trial\",\n        \"license\": \"Proprietary\",\n        \"openSource\": false,\n        \"upvoteCount\": 1247,\n        \"alternativeCount\": 89\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76be29bb-e47e-4681-9801-3b839530ea46",
+              "name": "Unauthorized - invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alternatives",
+                    ":query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "your_api_key_here"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "query",
+                      "description": "(Required) Product name to search for and find alternatives to (e.g., \"basecamp\", \"jira\", \"trello\")."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aad525d2-d09e-4f10-803a-a8baa8fe0a07",
+              "name": "No matching product found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alternatives",
+                    ":query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "your_api_key_here"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "query",
+                      "description": "(Required) Product name to search for and find alternatives to (e.g., \"basecamp\", \"jira\", \"trello\")."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.saashub.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bad1e247-c564-40df-9149-5629d3256589",
+    "name": "SaaSHub Alternatives API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SaaSHub public API provides programmatic access to SaaSHub's software discovery platform. The API offers two primary endpoints: a product endpoint that returns data for the first product matching a query, and an alternatives endpoint that returns the matching product along with its top 10 relevant alternatives. Responses follow the JSON:API specification. Authentication requires an API key obtained from the SaaSHub user profile.\n\nContact Support:\n Name: SaaSHub Support",
+      "type": "text/plain"
+    }
+  }
+}
