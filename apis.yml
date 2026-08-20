@@ -23,6 +23,11 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/saashub.pn
 url: https://raw.githubusercontent.com/api-evangelist/saashub/refs/heads/main/apis.yml
 tags:
   - Alternatives
+  - Software-as-a-Service
+  - Software Discovery
+  - Software Catalog
+tags_raw:
+  - Alternatives
   - SaaS
   - Software Discovery
   - Software Catalog
@@ -50,6 +55,8 @@ apis:
   humanURL: https://www.saashub.com/site/api
   baseURL: https://www.saashub.com/api
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
