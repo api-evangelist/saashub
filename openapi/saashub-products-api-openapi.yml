@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SaaSHub Alternatives Products API
+  title: SaaSHub Products API
   description: 'The SaaSHub public API provides programmatic access to SaaSHub''s software discovery platform. The API offers two primary endpoints: a product endpoint that returns data for the first product matching a query, and an alternatives endpoint that returns the matching product along with its top 10 relevant alternatives. Responses follow the JSON:API specification. Authentication requires an API key obtained from the SaaSHub user profile.'
   version: 1.0.0
   contact:
@@ -49,12 +49,6 @@ paths:
           description: No matching product found
 components:
   schemas:
-    ProductResponse:
-      type: object
-      description: JSON:API compliant product response
-      properties:
-        data:
-          $ref: '#/components/schemas/ProductData'
     ProductData:
       type: object
       description: JSON:API resource object for a software product
@@ -69,6 +63,12 @@ components:
           example: products
         attributes:
           $ref: '#/components/schemas/ProductAttributes'
+    ProductResponse:
+      type: object
+      description: JSON:API compliant product response
+      properties:
+        data:
+          $ref: '#/components/schemas/ProductData'
     ProductAttributes:
       type: object
       properties:
