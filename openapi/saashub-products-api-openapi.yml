@@ -49,6 +49,12 @@ paths:
           description: No matching product found
 components:
   schemas:
+    ProductResponse:
+      type: object
+      description: JSON:API compliant product response
+      properties:
+        data:
+          $ref: '#/components/schemas/ProductData'
     ProductData:
       type: object
       description: JSON:API resource object for a software product
@@ -63,12 +69,6 @@ components:
           example: products
         attributes:
           $ref: '#/components/schemas/ProductAttributes'
-    ProductResponse:
-      type: object
-      description: JSON:API compliant product response
-      properties:
-        data:
-          $ref: '#/components/schemas/ProductData'
     ProductAttributes:
       type: object
       properties:
