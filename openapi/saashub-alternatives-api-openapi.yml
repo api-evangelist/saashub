@@ -63,6 +63,18 @@ components:
           example: products
         attributes:
           $ref: '#/components/schemas/ProductAttributes'
+    AlternativesResponse:
+      type: object
+      description: JSON:API compliant alternatives response
+      properties:
+        data:
+          $ref: '#/components/schemas/ProductData'
+        included:
+          type: array
+          description: Top 10 alternative products
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/ProductData'
     ProductAttributes:
       type: object
       properties:
@@ -124,15 +136,3 @@ components:
           type: integer
           description: Number of alternatives listed
           example: 89
-    AlternativesResponse:
-      type: object
-      description: JSON:API compliant alternatives response
-      properties:
-        data:
-          $ref: '#/components/schemas/ProductData'
-        included:
-          type: array
-          description: Top 10 alternative products
-          maxItems: 10
-          items:
-            $ref: '#/components/schemas/ProductData'
