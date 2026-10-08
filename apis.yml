@@ -78,6 +78,12 @@ apis:
   - type: Authentication
     url: https://www.saashub.com/profile/api_key
 common:
+  - type: Plans
+    url: plans/saashub-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/saashub-rate-limits.yml
+  - type: FinOps
+    url: finops/saashub-finops.yml
   - type: AgenticAccess
     url: agentic-access/saashub-agentic-access.yml
   - type: DomainSecurity
